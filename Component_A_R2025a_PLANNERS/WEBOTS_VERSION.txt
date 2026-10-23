@@ -1,0 +1,2 @@
+Target Webots release: R2025a
+World format header: #VRML_SIM R2025a utf8

@@ -1,0 +1,41 @@
+COMPONENT A - WEBOTS R2025a ENGINE VALIDATION
+============================================
+
+These are measurements from the actual Webots R2025a physics engine, not the
+separate synthetic Python report and not a mocked controller.
+
+Platform used for validation:
+- Official Webots R2025a Linux binary.
+- Xvfb display and Mesa software rendering.
+- Python navigation_controller, including live GPS, Compass, LiDAR and Camera.
+- Both trials started from the initial world pose.
+
+Planner       Planned distance    Expanded cells    Goal time    GPS error
+A*            14.31 m             664               71.45 s      0.128 m
+Dijkstra      14.31 m             1472              71.20 s      0.139 m
+
+Times above are simulated time, not real elapsed time.
+The goal tolerance is 0.16 m.
+After goal completion, the controller keeps both motor velocity targets at zero.
+Both completed runs were checked for absence of further driving telemetry after
+the goal message and for absence of Python exceptions.
+
+The dedicated indoor_navigation_dijkstra.wbt entry world was additionally
+launched with no keyboard input and no planner environment override. Its
+controllerArgs selected Dijkstra, it printed RUNNING PLANNER: Dijkstra, and it
+reached the goal at 71.20 simulated seconds with a 0.139 m final GPS error.
+
+Relevant observed engine output:
+Goal reached using A* at t=71.45 s; position=(4.587, 1.472)m; error=0.128m. Motors stopped.
+Goal reached using Dijkstra at t=71.20 s; position=(4.595, 1.450)m; error=0.139m. Motors stopped.
+
+Ten offline regression checks also pass, covering planner equivalence, corner
+clearance, map alignment, PID limits/reset, LiDAR steering preservation, world
+syntax, built-in node references, wheel-axis conventions and startup planner
+selection through world controller arguments.
+
+Limitations:
+- These runs used Linux; the intended Windows R2025a environment has not been
+  remotely tested. Python configuration and graphics drivers may differ.
+- The map is static. Moving barriers requires updating/replanning the map.
+- This is a simulation prototype, not a hardware safety certification.

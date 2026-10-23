@@ -1,0 +1,308 @@
+#VRML_SIM R2025a utf8
+WorldInfo {
+  title "Component A - Rover Navigation Arena"
+  basicTimeStep 50
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.667786633 0.667786633 0.328819138 2.506228070
+  position 0 10 13
+  description "Arena overview"
+}
+# Built-in nodes only: no external PROTO files or network downloads required.
+Background { skyColor [ 0.65 0.73 0.82 ] }
+DirectionalLight {
+  direction -0.4 -1 -0.3
+  ambientIntensity 0.45
+  intensity 1
+  castShadows TRUE
+}
+
+# A pale concrete floor with fine grout lines, matching the design preview.
+DEF ARENA_FLOOR Solid {
+  translation 0 -0.05 0
+  name "arena floor"
+  children [
+    Shape {
+      appearance PBRAppearance { baseColor 0.70 0.69 0.64 roughness 1 }
+      geometry Box { size 12 0.10 12 }
+    }
+    # North/south grout lines.
+    Transform { translation -5.5 0.051 0 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 0.012 0.002 12 } } ] }
+    Transform { translation -4.5 0.051 0 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 0.012 0.002 12 } } ] }
+    Transform { translation -3.5 0.051 0 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 0.012 0.002 12 } } ] }
+    Transform { translation -2.5 0.051 0 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 0.012 0.002 12 } } ] }
+    Transform { translation -1.5 0.051 0 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 0.012 0.002 12 } } ] }
+    Transform { translation -0.5 0.051 0 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 0.012 0.002 12 } } ] }
+    Transform { translation 0.5 0.051 0 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 0.012 0.002 12 } } ] }
+    Transform { translation 1.5 0.051 0 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 0.012 0.002 12 } } ] }
+    Transform { translation 2.5 0.051 0 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 0.012 0.002 12 } } ] }
+    Transform { translation 3.5 0.051 0 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 0.012 0.002 12 } } ] }
+    Transform { translation 4.5 0.051 0 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 0.012 0.002 12 } } ] }
+    Transform { translation 5.5 0.051 0 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 0.012 0.002 12 } } ] }
+    # East/west grout lines.
+    Transform { translation 0 0.051 -5.5 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 12 0.002 0.012 } } ] }
+    Transform { translation 0 0.051 -4.5 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 12 0.002 0.012 } } ] }
+    Transform { translation 0 0.051 -3.5 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 12 0.002 0.012 } } ] }
+    Transform { translation 0 0.051 -2.5 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 12 0.002 0.012 } } ] }
+    Transform { translation 0 0.051 -1.5 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 12 0.002 0.012 } } ] }
+    Transform { translation 0 0.051 -0.5 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 12 0.002 0.012 } } ] }
+    Transform { translation 0 0.051 0.5 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 12 0.002 0.012 } } ] }
+    Transform { translation 0 0.051 1.5 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 12 0.002 0.012 } } ] }
+    Transform { translation 0 0.051 2.5 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 12 0.002 0.012 } } ] }
+    Transform { translation 0 0.051 3.5 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 12 0.002 0.012 } } ] }
+    Transform { translation 0 0.051 4.5 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 12 0.002 0.012 } } ] }
+    Transform { translation 0 0.051 5.5 children [ Shape { appearance PBRAppearance { baseColor 0.60 0.59 0.55 roughness 1 } geometry Box { size 12 0.002 0.012 } } ] }
+  ]
+  boundingObject Box { size 12 0.10 12 }
+}
+
+# Tall dark perimeter walls.
+DEF WALL_NORTH Solid {
+  translation 0 0.65 -5.98
+  name "north wall"
+  children [ Shape { appearance PBRAppearance { baseColor 0.12 0.18 0.25 roughness 0.94 } geometry Box { size 12.2 1.30 0.16 } } ]
+  boundingObject Box { size 12.2 1.30 0.16 }
+}
+DEF WALL_SOUTH Solid {
+  translation 0 0.65 5.98
+  name "south wall"
+  children [ Shape { appearance PBRAppearance { baseColor 0.12 0.18 0.25 roughness 0.94 } geometry Box { size 12.2 1.30 0.16 } } ]
+  boundingObject Box { size 12.2 1.30 0.16 }
+}
+DEF WALL_WEST Solid {
+  translation -5.98 0.65 0
+  name "west wall"
+  children [ Shape { appearance PBRAppearance { baseColor 0.12 0.18 0.25 roughness 0.94 } geometry Box { size 0.16 1.30 12.2 } } ]
+  boundingObject Box { size 0.16 1.30 12.2 }
+}
+DEF WALL_EAST Solid {
+  translation 5.98 0.65 0
+  name "east wall"
+  children [ Shape { appearance PBRAppearance { baseColor 0.12 0.18 0.25 roughness 0.94 } geometry Box { size 0.16 1.30 12.2 } } ]
+  boundingObject Box { size 0.16 1.30 12.2 }
+}
+
+# Static concrete barriers. These coordinates match the live design preview
+# and the 0.24 m occupancy-grid map used by both planners.
+DEF OBSTACLE_1 Solid {
+  translation -3.84 0.30 -2.88
+  name "Concrete barrier 01"
+  model "Concrete navigation barrier"
+  recognitionColors [ 0.46 0.47 0.45 ]
+  children [
+    Shape { appearance PBRAppearance { baseColor 0.43 0.45 0.44 roughness 0.96 } geometry Box { size 0.48 0.60 3.84 } }
+    Transform { translation 0 0.306 0 children [ Shape { appearance PBRAppearance { baseColor 0.53 0.54 0.51 roughness 0.92 } geometry Box { size 0.50 0.012 3.86 } } ] }
+  ]
+  boundingObject Box { size 0.48 0.60 3.84 }
+}
+DEF OBSTACLE_2 Solid {
+  translation -0.96 0.30 -3.60
+  name "Concrete barrier 02"
+  model "Concrete navigation barrier"
+  recognitionColors [ 0.46 0.47 0.45 ]
+  children [
+    Shape { appearance PBRAppearance { baseColor 0.43 0.45 0.44 roughness 0.96 } geometry Box { size 3.36 0.60 0.48 } }
+    Transform { translation 0 0.306 0 children [ Shape { appearance PBRAppearance { baseColor 0.53 0.54 0.51 roughness 0.92 } geometry Box { size 3.38 0.012 0.50 } } ] }
+  ]
+  boundingObject Box { size 3.36 0.60 0.48 }
+}
+DEF OBSTACLE_3 Solid {
+  translation -0.96 0.30 -0.36
+  name "Concrete barrier 03"
+  model "Concrete navigation barrier"
+  recognitionColors [ 0.46 0.47 0.45 ]
+  children [
+    Shape { appearance PBRAppearance { baseColor 0.43 0.45 0.44 roughness 0.96 } geometry Box { size 0.48 0.60 3.60 } }
+    Transform { translation 0 0.306 0 children [ Shape { appearance PBRAppearance { baseColor 0.53 0.54 0.51 roughness 0.92 } geometry Box { size 0.50 0.012 3.62 } } ] }
+  ]
+  boundingObject Box { size 0.48 0.60 3.60 }
+}
+DEF OBSTACLE_4 Solid {
+  translation 2.64 0.30 -1.20
+  name "Concrete barrier 04"
+  model "Concrete navigation barrier"
+  recognitionColors [ 0.46 0.47 0.45 ]
+  children [
+    Shape { appearance PBRAppearance { baseColor 0.43 0.45 0.44 roughness 0.96 } geometry Box { size 3.36 0.60 0.48 } }
+    Transform { translation 0 0.306 0 children [ Shape { appearance PBRAppearance { baseColor 0.53 0.54 0.51 roughness 0.92 } geometry Box { size 3.38 0.012 0.50 } } ] }
+  ]
+  boundingObject Box { size 3.36 0.60 0.48 }
+}
+DEF OBSTACLE_5 Solid {
+  translation -4.08 0.30 2.04
+  name "Concrete barrier 05"
+  model "Concrete navigation barrier"
+  recognitionColors [ 0.46 0.47 0.45 ]
+  children [
+    Shape { appearance PBRAppearance { baseColor 0.43 0.45 0.44 roughness 0.96 } geometry Box { size 0.48 0.60 3.12 } }
+    Transform { translation 0 0.306 0 children [ Shape { appearance PBRAppearance { baseColor 0.53 0.54 0.51 roughness 0.92 } geometry Box { size 0.50 0.012 3.14 } } ] }
+  ]
+  boundingObject Box { size 0.48 0.60 3.12 }
+}
+DEF OBSTACLE_6 Solid {
+  translation -1.08 0.30 1.68
+  name "Concrete barrier 06"
+  model "Concrete navigation barrier"
+  recognitionColors [ 0.46 0.47 0.45 ]
+  children [
+    Shape { appearance PBRAppearance { baseColor 0.43 0.45 0.44 roughness 0.96 } geometry Box { size 3.12 0.60 0.48 } }
+    Transform { translation 0 0.306 0 children [ Shape { appearance PBRAppearance { baseColor 0.53 0.54 0.51 roughness 0.92 } geometry Box { size 3.14 0.012 0.50 } } ] }
+  ]
+  boundingObject Box { size 3.12 0.60 0.48 }
+}
+DEF OBSTACLE_7 Solid {
+  translation 3.12 0.30 3.84
+  name "Concrete barrier 07"
+  model "Concrete navigation barrier"
+  recognitionColors [ 0.46 0.47 0.45 ]
+  children [
+    Shape { appearance PBRAppearance { baseColor 0.43 0.45 0.44 roughness 0.96 } geometry Box { size 0.48 0.60 2.88 } }
+    Transform { translation 0 0.306 0 children [ Shape { appearance PBRAppearance { baseColor 0.53 0.54 0.51 roughness 0.92 } geometry Box { size 0.50 0.012 2.90 } } ] }
+  ]
+  boundingObject Box { size 0.48 0.60 2.88 }
+}
+DEF OBSTACLE_8 Solid {
+  translation -2.28 0.30 3.60
+  name "Concrete barrier 08"
+  model "Concrete navigation barrier"
+  recognitionColors [ 0.46 0.47 0.45 ]
+  children [
+    Shape { appearance PBRAppearance { baseColor 0.43 0.45 0.44 roughness 0.96 } geometry Box { size 2.16 0.60 0.48 } }
+    Transform { translation 0 0.306 0 children [ Shape { appearance PBRAppearance { baseColor 0.53 0.54 0.51 roughness 0.92 } geometry Box { size 2.18 0.012 0.50 } } ] }
+  ]
+  boundingObject Box { size 2.16 0.60 0.48 }
+}
+DEF OBSTACLE_9 Solid {
+  translation 3.60 0.30 -4.56
+  name "Concrete barrier 09"
+  model "Concrete navigation barrier"
+  recognitionColors [ 0.46 0.47 0.45 ]
+  children [
+    Shape { appearance PBRAppearance { baseColor 0.43 0.45 0.44 roughness 0.96 } geometry Box { size 1.92 0.60 0.48 } }
+    Transform { translation 0 0.306 0 children [ Shape { appearance PBRAppearance { baseColor 0.53 0.54 0.51 roughness 0.92 } geometry Box { size 1.94 0.012 0.50 } } ] }
+  ]
+  boundingObject Box { size 1.92 0.60 0.48 }
+}
+
+# Flat green start/goal zones and red/green pin markers are visual-only.
+DEF START_MARKER Solid {
+  translation -5.16 0.012 -5.16
+  name "start marker"
+  children [
+    Transform { rotation 1 0 0 -1.570796327 children [ Shape { appearance PBRAppearance { baseColor 0.25 0.62 0.32 transparency 0.48 roughness 1 } geometry Cylinder { radius 0.62 height 0.018 } } ] }
+    Transform {
+      translation 0 0.020 0
+      rotation 1 0 0 -1.570796327
+      children [
+        Shape {
+          appearance PBRAppearance { baseColor 0.20 0.50 0.27 roughness 0.8 }
+          geometry Cylinder { radius 0.035 height 0.040 }
+        }
+      ]
+    }
+    Transform { translation 0.48 0.55 0 children [
+      Transform { rotation 1 0 0 -1.570796327 children [ Shape { appearance PBRAppearance { baseColor 0.20 0.50 0.27 roughness 0.8 } geometry Cylinder { radius 0.018 height 1.05 } } ] }
+      Transform { translation 0 0.54 0 children [ Shape { appearance PBRAppearance { baseColor 0.20 0.50 0.27 roughness 0.8 } geometry Sphere { radius 0.10 } } ] }
+      Transform { translation 0.22 0.40 0 children [ Shape { appearance PBRAppearance { baseColor 0.20 0.50 0.27 roughness 0.8 } geometry Box { size 0.44 0.22 0.035 } } ] }
+    ] }
+  ]
+}
+DEF GOAL_MARKER Solid {
+  translation 4.65 0.012 1.50
+  name "goal marker"
+  children [
+    Transform { rotation 1 0 0 -1.570796327 children [ Shape { appearance PBRAppearance { baseColor 0.25 0.62 0.32 transparency 0.38 roughness 1 } geometry Cylinder { radius 0.72 height 0.018 } } ] }
+    Transform { translation 0 0.020 0 rotation 1 0 0 -1.570796327 children [ Shape { appearance PBRAppearance { baseColor 0.78 0.18 0.16 roughness 0.72 } geometry Cylinder { radius 0.035 height 0.040 } } ] }
+    Transform { translation -0.48 0.75 0 children [
+      Transform { rotation 1 0 0 -1.570796327 children [ Shape { appearance PBRAppearance { baseColor 0.78 0.18 0.16 roughness 0.72 } geometry Cylinder { radius 0.018 height 1.45 } } ] }
+      Transform { translation 0 0.74 0 children [ Shape { appearance PBRAppearance { baseColor 0.78 0.18 0.16 roughness 0.72 } geometry Sphere { radius 0.11 } } ] }
+      Transform { translation 0.22 0.54 0 children [ Shape { appearance PBRAppearance { baseColor 0.78 0.18 0.16 roughness 0.72 } geometry Box { size 0.44 0.23 0.035 } } ] }
+    ] }
+  ]
+}
+
+Robot {
+  translation -5.16 0.11 -5.16
+  rotation 0 1 0 -1.5708
+  name "Component A autonomous rover"
+  controller "navigation_controller"
+  children [
+    # Dark chassis, teal deck, small amber details.
+    Transform { translation 0 0 0 children [ Shape { appearance PBRAppearance { baseColor 0.10 0.16 0.17 roughness 0.54 metalness 0.12 } geometry Box { size 0.28 0.12 0.20 } } ] }
+    Transform { translation 0 0.064 0 children [ Shape { appearance PBRAppearance { baseColor 0.22 0.39 0.37 roughness 0.46 metalness 0.12 } geometry Box { size 0.235 0.008 0.155 } } ] }
+    Transform { translation 0 0.070 0.055 children [ Shape { appearance PBRAppearance { baseColor 0.82 0.49 0.24 roughness 0.55 } geometry Box { size 0.065 0.008 0.045 } } ] }
+    # LiDAR puck and front camera housing.
+    Transform { translation 0 0.091 0 children [
+      Transform { rotation 1 0 0 -1.570796327 children [ Shape { appearance PBRAppearance { baseColor 0.78 0.77 0.70 roughness 0.34 metalness 0.30 } geometry Cylinder { radius 0.029 height 0.025 } } ] }
+      Transform { translation 0 0.016 0 rotation 1 0 0 -1.570796327 children [ Shape { appearance PBRAppearance { baseColor 0.86 0.52 0.22 roughness 0.4 metalness 0.24 } geometry Cylinder { radius 0.023 height 0.006 } } ] }
+    ] }
+    Transform { translation 0 0.073 -0.10 children [
+      Shape { appearance PBRAppearance { baseColor 0.11 0.18 0.19 roughness 0.42 metalness 0.2 } geometry Box { size 0.055 0.045 0.045 } }
+      Transform { translation 0 0 -0.025 children [ Shape { appearance PBRAppearance { baseColor 0.20 0.78 0.80 emissiveColor 0.03 0.12 0.12 roughness 0.3 } geometry Box { size 0.025 0.018 0.004 } } ] }
+    ] }
+    GPS { name "gps" translation 0 0.17 0 }
+    Compass { name "compass" }
+    Camera {
+      name "camera"
+      translation 0 0.073 -0.125
+      rotation -0.577350269 0.577350269 0.577350269 2.094395102
+      width 160
+      height 100
+      fieldOfView 1.43117
+      near 0.03
+      recognition Recognition { }
+    }
+    Lidar {
+      name "lidar"
+      translation 0 0.12 0
+      rotation -0.577350269 0.577350269 0.577350269 2.094395102
+      horizontalResolution 180
+      numberOfLayers 1
+      fieldOfView 6.28318
+      near 0.05
+      minRange 0.05
+      maxRange 4.2
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters { axis -1 0 0 anchor -0.15 -0.06 0 }
+      device [
+        RotationalMotor { name "left wheel motor" maxVelocity 6.28 }
+        PositionSensor { name "left wheel sensor" }
+      ]
+      endPoint Solid {
+        translation -0.15 -0.06 0
+        name "left drive wheel"
+        rotation 0 1 0 1.570796327
+        children [
+          Shape { appearance PBRAppearance { baseColor 0.07 0.08 0.09 roughness 0.9 } geometry Cylinder { radius 0.05 height 0.024 } }
+          Transform { translation 0 0 -0.013 children [ Shape { appearance PBRAppearance { baseColor 0.57 0.62 0.58 roughness 0.48 metalness 0.36 } geometry Cylinder { radius 0.026 height 0.004 } } ] }
+        ]
+        boundingObject Cylinder { radius 0.05 height 0.024 }
+        physics Physics { density -1 mass 0.12 }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters { axis -1 0 0 anchor 0.15 -0.06 0 }
+      device [
+        RotationalMotor { name "right wheel motor" maxVelocity 6.28 }
+        PositionSensor { name "right wheel sensor" }
+      ]
+      endPoint Solid {
+        translation 0.15 -0.06 0
+        name "right drive wheel"
+        rotation 0 1 0 1.570796327
+        children [
+          Shape { appearance PBRAppearance { baseColor 0.07 0.08 0.09 roughness 0.9 } geometry Cylinder { radius 0.05 height 0.024 } }
+          Transform { translation 0 0 0.013 children [ Shape { appearance PBRAppearance { baseColor 0.57 0.62 0.58 roughness 0.48 metalness 0.36 } geometry Cylinder { radius 0.026 height 0.004 } } ] }
+        ]
+        boundingObject Cylinder { radius 0.05 height 0.024 }
+        physics Physics { density -1 mass 0.12 }
+      }
+    }
+  ]
+  boundingObject Box { size 0.28 0.12 0.20 }
+  # A low internal mass centre stabilizes this no-caster differential-drive
+  # prototype without changing the visible rover design.
+  physics Physics { density -1 mass 2.0 centerOfMass [ 0 -0.075 0 ] }
+}
